@@ -18,7 +18,7 @@ template <typename T1, typename T2>
 class BST
 {
 protected:
-	node<T1, T2> *root; //корень
+	node<T1, T2> *root; //РєРѕСЂРµРЅСЊ
 	int size, numOperation;
 	void print(node<T1, T2> *n, int level);
 	void L_R_t(node<T1, T2>* n);
@@ -114,25 +114,25 @@ protected:
 	}
 
 public:
-	BST(); //конструктор
-	BST(const BST<T1, T2> &tree); // конструктор копирования
-	~BST(); // деструктор
+	BST(); //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	BST(const BST<T1, T2> &tree); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	~BST(); //  РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 
 	int numOp();
-	int Size(); // размер дерева
-	void clear(); //очистка дерева
-	bool is_empty(); //проверка на пустоту
-	virtual T2 getData(T1 k); //доступ по чтению
-	bool setData(T1 k, T2 v); //доступ по записи
-	virtual bool push(T1 k, T2 v); //вставка по ключу
-	virtual bool erase(T1 k); //удаление по ключу
-	T1* keyList(); //список ключей
-	int keyNumber(T1 k); //количество узлов с ключами, больше заданного
-	void show(); //вывод дерева на консоль
+	int Size(); // СЂР°Р·РјРµСЂ РґРµСЂРµРІР°
+	void clear(); //РѕС‡РёСЃС‚РєР° РґРµСЂРµРІР°
+	bool is_empty(); //РїСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ
+	virtual T2 getData(T1 k);  //РґРѕСЃС‚СѓРї РїРѕ С‡С‚РµРЅРёСЋ
+	bool setData(T1 k, T2 v); //РґРѕСЃС‚СѓРї РїРѕ Р·Р°РїРёСЃРё
+	virtual bool push(T1 k, T2 v); //РІСЃС‚Р°РІРєР° РїРѕ РєР»СЋС‡Сѓ
+	virtual bool erase(T1 k); //СѓРґР°Р»РµРЅРёРµ РїРѕ РєР»СЋС‡Сѓ
+	T1* keyList(); //СЃРїРёСЃРѕРє РєР»СЋС‡РµР№
+	int keyNumber(T1 k); //РєРѕР»РёС‡РµСЃС‚РІРѕ СѓР·Р»РѕРІ СЃ РєР»СЋС‡Р°РјРё, Р±РѕР»СЊС€Рµ Р·Р°РґР°РЅРЅРѕРіРѕ
+	void show(); //РІС‹РІРѕРґ РґРµСЂРµРІР° РЅР° РєРѕРЅСЃРѕР»СЊ
 
 	class Iterator {
-		BST<T1, T2>* tree; //указатель на дерево
-		node<T1, T2>* cur; //Указатель на текущий элемент дерева
+		BST<T1, T2>* tree; //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РґРµСЂРµРІРѕ
+		node<T1, T2>* cur; //РЈРєР°Р·Р°С‚РµР»СЊ РЅР° С‚РµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚ РґРµСЂРµРІР°
 		void prev()
 		{
 			cur = tree->Predecessor(tree->root, cur);
@@ -142,11 +142,11 @@ public:
 			cur = tree->Successor(tree->root, cur);
 		}
 	public:
-		Iterator(); //В ОТЧЕТ НЕ ВСТАВЛЯТЬ
-		Iterator(BST<T1, T2>* t, node<T1, T2>* n); //В ОТЧЕТ НЕ ВСТАВЛЯТЬ
+		Iterator(); 
+		Iterator(BST<T1, T2>* t, node<T1, T2>* n); 
 		Iterator(const Iterator&iter);
 
-		T2& operator *(); //доступ к данным текущего элемента по чтению
+		T2& operator *(); //РґРѕСЃС‚СѓРї Рє РґР°РЅРЅС‹Рј С‚РµРєСѓС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р° 
 		Iterator& operator++()
 		{
 			tree->numOperation = 0;
@@ -174,7 +174,7 @@ public:
 	};
 	friend class Iterator;
 
-	Iterator begin()		//получение итератора begin( )
+	Iterator begin()		//РїРѕР»СѓС‡РµРЅРёРµ РёС‚РµСЂР°С‚РѕСЂР° begin( )
 	{
 		node<T1, T2>* temp = root;
 		if (temp != NULL)
@@ -187,7 +187,7 @@ public:
 		Iterator iter(this, temp);
 		return iter;
 	}
-	Iterator end()		//получение итератора end( )
+	Iterator end()		//РїРѕР»СѓС‡РµРЅРёРµ РёС‚РµСЂР°С‚РѕСЂР° end( )
 	{
 		node<T1, T2>* temp = root;
 		while (temp != NULL)
@@ -197,7 +197,7 @@ public:
 		Iterator iter(this, temp);
 		return iter;
 	}
-	Iterator rbegin()		//получение итератора rbegin( )
+	Iterator rbegin()		//РїРѕР»СѓС‡РµРЅРёРµ РёС‚РµСЂР°С‚РѕСЂР° rbegin( )
 	{
 		node<T1, T2>* temp = root;
 		if (temp != NULL)
@@ -257,7 +257,7 @@ template <typename T1, typename T2>
 bool BST <T1, T2>::push(T1 k, T2 v)
 {
 	numOperation = 1;
-	if (root == NULL) //вставка в корень если дерево пусто
+	if (root == NULL) //РІСЃС‚Р°РІРєР° РІ РєРѕСЂРµРЅСЊ РµСЃР»Рё РґРµСЂРµРІРѕ РїСѓСЃС‚Рѕ
 	{
 		root = new node<T1, T2>(k, v);
 		size++;
@@ -267,9 +267,9 @@ bool BST <T1, T2>::push(T1 k, T2 v)
 	node<T1, T2> *t = root;
 	node<T1, T2> *pred = t;
 
-	while (t != NULL) // поиск места вставки
+	while (t != NULL) // РїРѕРёСЃРє РјРµСЃС‚Р° РІСЃС‚Р°РІРєРё
 	{
-		if (k == t->key) // совпадение ключей
+		if (k == t->key) // СЃРѕРІРїР°РґРµРЅРёРµ РєР»СЋС‡РµР№
 		{
 			t = root;
 			while (t->key != k)
@@ -313,10 +313,10 @@ bool BST <T1, T2>::erase(T1 k)
 	numOperation = 1;
 	node<T1, T2> *temp = root;
 	node<T1, T2> *parent1 = NULL;
-	node<T1, T2> *savedSubtree; //то, что идет после удаляемого элемента
+	node<T1, T2> *savedSubtree; //С‚Рѕ, С‡С‚Рѕ РёРґРµС‚ РїРѕСЃР»Рµ СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 	node<T1, T2> *minRight;
 
-	while (temp != NULL && temp->key != k) // поиск удаляемого элемента
+	while (temp != NULL && temp->key != k) // РїРѕРёСЃРє СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 	{
 		parent1 = temp;
 		numOperation++;
@@ -326,7 +326,7 @@ bool BST <T1, T2>::erase(T1 k)
 		else temp = temp->right;
 	}
 
-	if (temp == NULL) // если не нашли ключ
+	if (temp == NULL) //  РµСЃР»Рё РЅРµ РЅР°С€Р»Рё РєР»СЋС‡
 	{
 		temp = root;
 		while (temp != NULL)
@@ -345,21 +345,21 @@ bool BST <T1, T2>::erase(T1 k)
 		temp->num_descendants--;
 	}
 
-	if (temp->left == NULL and temp->right == NULL) //если это лист
+	if (temp->left == NULL and temp->right == NULL) //РµСЃР»Рё СЌС‚Рѕ Р»РёСЃС‚
 		savedSubtree = NULL;
 
-	else if (temp->left == NULL) //если есть только правое поддерево
+	else if (temp->left == NULL) //РµСЃР»Рё РµСЃС‚СЊ С‚РѕР»СЊРєРѕ РїСЂР°РІРѕРµ РїРѕРґРґРµСЂРµРІРѕ
 		savedSubtree = temp->right;
 
-	else if (temp->right == NULL) //если есть только левое поддерево
+	else if (temp->right == NULL) //РµСЃР»Рё РµСЃС‚СЊ С‚РѕР»СЊРєРѕ Р»РµРІРѕРµ РїРѕРґРґРµСЂРµРІРѕ
 		savedSubtree = temp->left;
 
-	else //если есть оба сына
+	else //РµСЃР»Рё РµСЃС‚СЊ РѕР±Р° СЃС‹РЅР°
 	{
 		parent1 = temp;
 		minRight = temp->right;
 
-		while (minRight->left != NULL) //ищем минимальный элемент в правом поддереве
+		while (minRight->left != NULL) //РёС‰РµРј РјРёРЅРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РІ РїСЂР°РІРѕРј РїРѕРґРґРµСЂРµРІРµ
 		{
 			numOperation++;
 			parent1 = minRight;
@@ -372,7 +372,7 @@ bool BST <T1, T2>::erase(T1 k)
 		temp = minRight;
 	}
 
-	if (parent1 == NULL) //если удаляемый элемент лежит в корне
+	if (parent1 == NULL) //РµСЃР»Рё СѓРґР°Р»СЏРµРјС‹Р№ СЌР»РµРјРµРЅС‚ Р»РµР¶РёС‚ РІ РєРѕСЂРЅРµ
 		root = savedSubtree;
 
 	else
@@ -462,7 +462,7 @@ bool BST <T1, T2>::setData(T1 k, T2 v)
 template <typename T1, typename T2>
 T1* BST <T1, T2>::keyList()
 {
-	T1 *List = new T1[size]; //список ключей
+	T1 *List = new T1[size]; //СЃРїРёСЃРѕРє РєР»СЋС‡РµР№
 	list<node<T1, T2>*> stek;
 	node<T1, T2>* temp;
 	int i = 0;
@@ -525,7 +525,7 @@ int BST <T1, T2>::keyNumber(T1 k)
 		if (k < temp->key)
 		{
 			if (temp->right != NULL)
-				num += temp->right->num_descendants + 2; //потомки правого поддерева, оно само и текущая вершина
+				num += temp->right->num_descendants + 2; //РїРѕС‚РѕРјРєРё РїСЂР°РІРѕРіРѕ РїРѕРґРґРµСЂРµРІР°, РѕРЅРѕ СЃР°РјРѕ Рё С‚РµРєСѓС‰Р°СЏ РІРµСЂС€РёРЅР°
 			else num++;
 			temp = temp->left;
 		}
