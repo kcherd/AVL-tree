@@ -3,10 +3,10 @@ template <typename T1, typename T2>
 class node
 {
 public:
-	T1 key; //ключ
-	T2 value; // данные
-	int num_descendants; //количество потомков
-	node *left, *right; // указатели на левого и правого соседа
+	T1 key; //РєР»СЋС‡
+	T2 value; // РґР°РЅРЅС‹Рµ
+	int num_descendants; //РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕС‚РѕРјРєРѕРІ
+	node *left, *right; // СѓРєР°Р·Р°С‚РµР»Рё РЅР° Р»РµРІРѕРіРѕ Рё РїСЂР°РІРѕРіРѕ СЃРѕСЃРµРґР°
 	int bal, hR, hL;
 
 	node(T1 k, T2 v)
