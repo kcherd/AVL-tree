@@ -15,9 +15,9 @@ class AVL : public BST<T1, T2>
 public:
 	AVL() : BST<T1, T2>() {};
 	//AVL(const AVL<T1, T2> &tree) : BST<T1, T2>(const BST<T1, T2> &tree) {};
-	bool push(T1 k, T2 v); //вставка по ключу
-	bool erase(T1 k); //удаление по ключу
-	T2 getData(T1 k); //доступ по чтению
+	bool push(T1 k, T2 v); //РІСЃС‚Р°РІРєР° РїРѕ РєР»СЋС‡Сѓ
+	bool erase(T1 k); //СѓРґР°Р»РµРЅРёРµ РїРѕ РєР»СЋС‡Сѓ
+	T2 getData(T1 k); //РґРѕСЃС‚СѓРї РїРѕ С‡С‚РµРЅРёСЋ
 };
 
 template <typename T1, typename T2>
@@ -45,7 +45,7 @@ node<T1, T2>* AVL<T1, T2> ::AVL_Insert(node<T1, T2> *&t, T1 k, T2 v, bool &h, bo
 {
 	this->numOperation++;
 	bool insert, hh = h;
-	if (t == NULL)//вставка в корень
+	if (t == NULL)//РІСЃС‚Р°РІРєР° РІ РєРѕСЂРµРЅСЊ
 	{
 		t = new node<T1, T2>(k, v);
 		t->bal = 0;
@@ -57,7 +57,7 @@ node<T1, T2>* AVL<T1, T2> ::AVL_Insert(node<T1, T2> *&t, T1 k, T2 v, bool &h, bo
 		return t;
 	}
 	h = false;
-	if (k == t->key) //совпадение ключей
+	if (k == t->key) //СЃРѕРІРїР°РґРµРЅРёРµ РєР»СЋС‡РµР№
 	{
 		inserted = false;
 		insert = false;
@@ -66,7 +66,7 @@ node<T1, T2>* AVL<T1, T2> ::AVL_Insert(node<T1, T2> *&t, T1 k, T2 v, bool &h, bo
 	if (k < t->key)
 	{
 		t->left = AVL_Insert(t->left, k, v, hh, insert);
-		if (hh) // выросла левая ветвь
+		if (hh) // РІС‹СЂРѕСЃР»Р° Р»РµРІР°СЏ РІРµС‚РІСЊ
 		{
 			if (t->bal == 1)
 			{
@@ -77,7 +77,7 @@ node<T1, T2>* AVL<T1, T2> ::AVL_Insert(node<T1, T2> *&t, T1 k, T2 v, bool &h, bo
 				t->bal = -1;
 				h = true;
 			}
-			//балансировка
+			//Р±Р°Р»Р°РЅСЃРёСЂРѕРІРєР°
 			else if (t->left->bal == -1)
 			{
 				t = R(t);
@@ -91,7 +91,7 @@ node<T1, T2>* AVL<T1, T2> ::AVL_Insert(node<T1, T2> *&t, T1 k, T2 v, bool &h, bo
 	else
 	{
 		t->right = AVL_Insert(t->right, k, v, hh, insert);
-		if (hh) //выросла правая ветвь
+		if (hh) //РІС‹СЂРѕСЃР»Р° РїСЂР°РІР°СЏ РІРµС‚РІСЊ
 		{
 			if (t->bal == -1)
 			{
@@ -102,7 +102,7 @@ node<T1, T2>* AVL<T1, T2> ::AVL_Insert(node<T1, T2> *&t, T1 k, T2 v, bool &h, bo
 				t->bal = 1;
 				h = true;
 			}
-			//балансировка
+			//Р±Р°Р»Р°РЅСЃРёСЂРѕРІРєР°
 			else if (t->right->bal == 1)
 			{
 				t = L(t);
@@ -197,7 +197,7 @@ node<T1, T2>* AVL<T1, T2> ::AVL_Delete(node<T1, T2>* &t, T1 k, bool &h, bool &de
 		deleted = del;
 		return t;
 	}
-	//найден удаляемый узел
+	//РЅР°Р№РґРµРЅ СѓРґР°Р»СЏРµРјС‹Р№ СѓР·РµР»
 	deleted = true;
 	del = true;
 	if (t->left == NULL && t->right == NULL)
